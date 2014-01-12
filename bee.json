@@ -1,8 +1,8 @@
 {
 	"version": 0,
 	"gopm": {
-		"enable": false,
-		"install": false
+		"enable": true,
+		"install": true
 	},
 	"go_install": true,
 	"watch_ext": [],
