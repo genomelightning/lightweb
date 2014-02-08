@@ -1,17 +1,5 @@
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Genome query for chr17.fa</title>
-</head>
-<body>
-	<form action="/" method="post">
-		Please enter start position:
-		<input type="text" name="startPoint">
-		end position:
-		<input type="text" name="endPoint">
-		<button type="submit">Query</button>
-	</form>
-
-	<textarea name="" id="" cols="55" rows="50">{{.Result}}</textarea>
-</body>
-</html>
+{{template "base/base.html" .}}
+{{define "head"}} <title>Lightning: human genome data query</title>{{end}}
+{{define "body"}}
+Website is still in the progress of building...please come back later!
+{{end}}

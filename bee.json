@@ -1,7 +1,7 @@
 {
 	"version": 0,
 	"gopm": {
-		"enable": true,
+		"enable": false,
 		"install": true
 	},
 	"go_install": true,
