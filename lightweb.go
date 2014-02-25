@@ -15,6 +15,7 @@ func main() {
 
 	// Register routers.
 	beego.Router("/", &routers.HomeRouter{})
+	beego.Router("/query", &routers.QueryRouter{})
 
 	beego.Run()
 }

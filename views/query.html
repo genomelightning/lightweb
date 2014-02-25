@@ -1,0 +1,35 @@
+{{template "base/base.html" .}}
+{{define "head"}} <title>Query | Lightning: human genome data query</title>{{end}}
+{{define "body"}}
+<p>
+	Welcome to the Query Page of Lightning: human genome data query! Please choose what you want to query by clicking links below:
+</p>
+<ul class="nav nav-pills">
+	<li><a href="#bands">Bands</a></li>
+	<li><a href="#tagsets">Tagsets</a></li>
+	<li><a href="#tilesets">Tilesets</a></li>
+</ul>
+
+<div id="bands">
+	<h3>Bands</h3>
+	<h4>Query by Index</h4>
+	<form class="form-inline">
+		<span>Please enter index(3 digits in Hex): </spen>
+		<input type="text" maxlength="3" class="input-small">	
+		<button id="query_bands_by_index" class="btn btn-info" style="margin-top: -2px;">Query</button>
+	</form>
+
+	<h4>Result:</h4>
+	<textarea id="bands_query_result" cols="100" rows="5"></textarea>
+</div>
+
+<div id="tagsets">
+	<h3>Tagsets</h3>
+	<p>There is no content yet.</p>
+</div>
+
+<div id="tilesets">
+	<h3>Tilesets</h3>
+	<p>There is no content yet.</p>
+</div>
+{{end}}
