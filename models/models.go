@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	HgCytoMaps = make(map[string]*cytomap.CytoMap)
+	HgCytoMaps = make(map[int]*cytomap.CytoMap)
 )
 
 func init() {
@@ -21,12 +21,13 @@ func init() {
 		log.Fatalf("cytomap.ParseCytoMap: %v", err)
 	}
 	log.Printf("Total rules: %d(hg%d)", len(cm.Rules), cm.Hg)
+	HgCytoMaps[cm.Hg] = cm
 
-	n, err := cm.PasreTiles()
-	if err != nil {
-		log.Fatalf("cytomap.PasreTiles: %v", err)
-	}
-	log.Printf("Total tiles: %d(hg%d)", n, cm.Hg)
+	// n, err := cm.PasreTiles()
+	// if err != nil {
+	// 	log.Fatalf("cytomap.PasreTiles: %v", err)
+	// }
+	// log.Printf("Total tiles: %d(hg%d)", n, cm.Hg)
 	log.Printf("Load genome spent: %v", time.Since(start))
 }
 

@@ -1,0 +1,19 @@
+{
+	"data": [
+		{
+			"start": 0,
+			"end": 15,
+			"color": "red"
+		},
+		{
+			"start": 15,
+			"end": 30,
+			"color": "blue"
+		},
+		{
+			"start": 30,
+			"end": 50,
+			"color": "green"
+		}
+	]
+}
