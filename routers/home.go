@@ -3,6 +3,9 @@ package routers
 import (
 	"fmt"
 	"os"
+	"path"
+
+	"github.com/Unknwon/com"
 )
 
 type HomeRouter struct {
@@ -46,6 +49,30 @@ func (this *HomeRouter) Post() {
 	p := make([]byte, end-start+1)
 	f.ReadAt(p, start+6)
 	this.Data["Result"] = string(p)
+}
+
+func (this *HomeRouter) Pngs() {
+	band, _ := this.GetInt("band")
+	pos, _ := this.GetInt("pos")
+	pngUrls := make([]string, 9)
+
+	curPos := pos - 1
+	curBand := band - 1
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			pngName := fmt.Sprintf("%d-%d.png", curBand, curPos)
+			if com.IsFile(path.Join("static/pngs", pngName)) {
+				pngUrls[i*3+j] = fmt.Sprintf("http://localhost:8085/static/pngs/%s", pngName)
+				pngUrls[i*3+j] = fmt.Sprintf("http://lightning-dev.curoverse.com/static/pngs/%s", pngName)
+			}
+			curBand++
+			// url:=fmt.Sprintf("http://lightning-dev.curoverse.com/api/v1/", ...)
+		}
+		curBand = band - 1
+		curPos++
+	}
+	this.Data["json"] = pngUrls
+	this.ServeJson(true)
 }
 
 // func (this *HomeRouter) Get() {
