@@ -1,0 +1,85 @@
+<style>
+
+body {
+    font-family: Helvetica, Sans, Arial;
+}
+
+.table {
+	background-color: #000000;
+    column-count: 3;
+    column-gap: 0px;
+	display:table-cell;
+   	vertical-align:middle;
+	text-align:center;
+}
+
+img {
+	padding: 1px 0px 1px 0px;
+}
+</style>
+
+
+<script>
+	function ajaxFunction(){
+		var ajaxRequest;
+		try{
+			ajaxRequest = new XMLHttpRequest({mozSystem: true});
+		} catch (e){
+			try{
+				ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+			} catch (e) {
+				try{
+					ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+				} catch (e){
+					// Something went wrong
+					alert("Your browser broke!");
+					return false;
+				}
+			}
+		}
+		ajaxRequest.onreadystatechange = function(){
+			if(ajaxRequest.readyState == 4){
+				var data = eval(ajaxRequest.responseText);
+				document.getElementById("p1").innerHTML = "";
+				var index;
+				var wat;
+				for (index = 0; index < data.length; ++index) {
+					wat = "img".concat(index.toString());
+					document.getElementById(wat).src = data[index];
+				}
+			}
+		}
+		//http://lightning-dev.curoverse.com/
+
+		ajaxRequest.open("GET", "/api/v1/pngs?band="+document.myForm.band.value+"&pos="+document.myForm.pos.value, true);
+		ajaxRequest.send();
+	}
+</script>
+<div id="container" style="width:660px">
+	<form name="myForm">
+		<!--Currently, Supertile ID: 0-9, Tile ID: 0-49 -->
+		SuperTile ID: <input type="text" name="band"/><br/> 
+    	Tile ID: <input type="text" name="pos"/><br/>
+    	<input type="button" value="Click for Tiles" name="ready" onClick="ajaxFunction();" />
+	</form>
+
+
+
+    <div id="header" class='wrapper'>
+        <h1> Requested Tiles </h1>
+    </div>
+	<p id="p1"> Enter data to see tiles </p>
+    <div id="col1" class="table" style="width:660px;height:650px;">
+        <img id="img0" src="" alt="" width="209" height="209" ></img>
+        <img id="img1" src="" alt="" width="209" height="209"></img>
+        <img id="img2" src="" alt="" width="209" height="209"></img>
+        <img id="img3" src="" alt="" width="209" height="209"></img>
+        <img id="img4" src="" alt="" width="209" height="209"></img>
+        <img id="img5" src="" alt="" width="209" height="209"></img>
+        <img id="img6" src="" alt="" width="209" height="209"></img>
+        <img id="img7" src="" alt="" width="209" height="209"></img>
+        <img id="img8" src="" alt="" width="209" height="209"></img>
+    </div>
+    
+</div>
+
