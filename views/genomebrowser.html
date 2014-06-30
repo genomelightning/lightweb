@@ -10,8 +10,38 @@
 
 </style>
 
-<div id="toolbarDiv" class="toolbar">
-	<span style="float:right">
+<div id="toolbarDiv" class="toolbar"></div>
+
+<div id="contentDiv" class="slippymap"></div>
+
+<script>
+	//Attempt to dynamically resize the window. Ended up just hardcoding it...
+	function resize(){
+		var w = 1000,
+			tools = document.getElementById("toolbarDiv"),
+			content = document.getElementById("contentDiv");
+		tools.style.width = w.toString() + "px";
+		tools.style.height = "35px";
+		content.style.width =w.toString() + "px";
+		content.style.height = "830px";
+
+	};
+	resize();
+		
+</script>
+
+
+<script src="/static/js/openseadragon.min.js"></script>
+<script src="/static/js/openseadragon-viewerinputhook.js"></script>
+<script src="/static/js/jquery-1.10.1.min.js"></script>
+<script src="/static/js/chromosome-dragon.js"></script>
+
+{{end}}
+
+
+	<!--
+		For in-window fast navigation	
+		<span style="float:right">
     	<select id="chrPicker" onchange="dragonWrap()"> 
 			<option value="1">Chromosome 1</option> 
 			<option value="2">Chromosome 2</option>
@@ -40,32 +70,4 @@
 			<option value="25">Mitochondrial Chromosome</option>
 		</select> 
         </span>
-</div>
-
-
-<div id="contentDiv" class="slippymap"></div>
-
-
-<script>
-	//Attempt to dynamically resize the window. Ended up just hardcoding it...
-	function resize(){
-		var w = 1000,
-			tools = document.getElementById("toolbarDiv"),
-			content = document.getElementById("contentDiv");
-		tools.style.width = w.toString() + "px";
-		tools.style.height = "35px";
-		content.style.width =w.toString() + "px";
-		content.style.height = "830px";
-
-	};
-	resize();
-		
-</script>
-
-
-<script src="/static/js/openseadragon.min.js"></script>
-<script src="/static/js/openseadragon-viewerinputhook.js"></script>
-<script src="/static/js/jquery-1.10.1.min.js"></script>
-<script src="/static/js/chromosome-dragon.js"></script>
-
-{{end}}
+	-->

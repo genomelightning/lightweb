@@ -1,8 +1,10 @@
 function beginDragon(){
-	var chr = $("#chrPicker").val();
+	//var chr = $("#chrPicker").val();
 
-	//var srcString = "/static/chromosomes/" + chr + "/chromosome.dzi";
-	var srcString = "/static/chromosomes/sm11/chromosome.dzi";
+	//var srcString = "/static/chromosomes/hu34D5B9.dzi";
+
+	
+	var srcString = "/static/chromosomes/all.dzi";
 	//try {
 		viewer = OpenSeadragon({
       		id: "contentDiv",
@@ -10,7 +12,8 @@ function beginDragon(){
         	tileSources: srcString,
 			//defaultZoomLevel: 6.1,
 			//minZoomLevel: ,
-			//maxZoomLevel: 3,
+			//maxZoomLevel: 5000,
+			visibilityRatio: 0.9,
 			showNavigator: true,
 			navigatorPosition: 'BOTTOM_LEFT',
 			navigatorHeight: 400,
@@ -26,32 +29,16 @@ function beginDragon(){
 	//}
 	//catch (){}
 
+	viewerInputHook = viewer.addViewerInputHook({hooks: [
+			{tracker: 'viewer', handler: 'clickHandler', hookHandler: onViewerClick}]});
+	function onViewerClick(event) {
+		event.preventDefaultAction = true;
+		console.log(viewer.viewport.getZoom());
+		console.log(viewer.viewport.getMaxZoom());
+	}
+
 }
 
-function dragonWrap(){
-//	viewerInputHook = viewer.addViewerInputHook({hooks: [
-	//		{tracker: 'viewer', handler: 'clickHandler', hookHandler: onViewerClick}]});
-	//function onViewerClick(event) {
-	//	event.preventDefaultAction = true;
-	//}
-	//viewer.destroy();
-	viewer.addLayer(OpenSeadragon({
-      		id: "contentDiv",
-			prefixUrl: "/static/js/openseadragon-images/",
-        	tileSources: "/static/chromosomes/sm1/chromosome.dzi",
-			//defaultZoomLevel: 6.1,
-			//minZoomLevel: ,
-			//maxZoomLevel: 3,
-			showNavigator: true,
-			navigatorPosition: 'BOTTOM_LEFT',
-			navigatorHeight: 400,
-			navigatorWidth: 80,
-			//debugMode: true,
-			toolbar: "toolbarDiv",
-			//showZoomControl: false
-    	}));	
-	beginDragon();
-}
 $(document).ready(beginDragon);
 
 //gigapix and IIPImage
