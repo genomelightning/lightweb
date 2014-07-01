@@ -3,71 +3,37 @@
 {{define "body"}}
 
 <style>
-
-.slippymap {
-	border: 3px solid black;
-}
-
+	.slippymap {
+		border: 3px solid black;
+	}
+    .navigator .highlight{
+		opacity:    0.4;
+		filter:     alpha(opacity=40);
+		border:     1px solid #900;
+		outline:    none;
+		background-color: #900;
+	}
+	.highlight{
+		opacity:    0.4;
+        filter:     alpha(opacity=40);
+        border:     1px solid #0A7EbE;
+        outline:    10px auto #0A7EbE;
+        background-color: white;
+	}
+	.highlight:hover, .highlight:focus{
+		filter:     alpha(opacity=70);
+		opacity:    0.7;
+		background-color: transparent;
+	}
 </style>
 
 <div id="toolbarDiv" class="toolbar"></div>
-
 <div id="contentDiv" class="slippymap"></div>
-
-<script>
-	//Attempt to dynamically resize the window. Ended up just hardcoding it...
-	function resize(){
-		var w = 1000,
-			tools = document.getElementById("toolbarDiv"),
-			content = document.getElementById("contentDiv");
-		tools.style.width = w.toString() + "px";
-		tools.style.height = "35px";
-		content.style.width =w.toString() + "px";
-		content.style.height = "830px";
-
-	};
-	resize();
-		
-</script>
-
+<div id="overlaytexts"></div>
 
 <script src="/static/js/openseadragon.min.js"></script>
 <script src="/static/js/openseadragon-viewerinputhook.js"></script>
 <script src="/static/js/jquery-1.10.1.min.js"></script>
-<script src="/static/js/chromosome-dragon.js"></script>
+<script src="/static/js/chromosome-dragon.js"></script> 
 
 {{end}}
-
-
-	<!--
-		For in-window fast navigation	
-		<span style="float:right">
-    	<select id="chrPicker" onchange="dragonWrap()"> 
-			<option value="1">Chromosome 1</option> 
-			<option value="2">Chromosome 2</option>
-			<option value="3">Chromosome 3</option>
-			<option value="4">Chromosome 4</option>
-			<option value="5">Chromosome 5</option>
-			<option value="6">Chromosome 6</option>
-			<option value="7">Chromosome 7</option>
-			<option value="8">Chromosome 8</option>
-			<option value="9">Chromosome 9</option>
-			<option value="10">Chromosome 10</option>
-			<option value="11">Chromosome 11</option>
-			<option value="12">Chromosome 12</option>
-			<option value="13">Chromosome 13</option>
-			<option value="14">Chromosome 14</option>
-			<option value="15">Chromosome 15</option>
-			<option value="16">Chromosome 16</option>
-			<option value="17">Chromosome 17</option>
-			<option value="18">Chromosome 18</option>
-			<option value="19">Chromosome 19</option>
-			<option value="20">Chromosome 20</option>
-			<option value="21">Chromosome 21</option>
-			<option value="22">Chromosome 22</option>
-			<option value="23">Chromosome X</option>
-			<option value="24">Chromosome Y</option>
-			<option value="25">Mitochondrial Chromosome</option>
-		</select> 
-        </span>
-	-->
