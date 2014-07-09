@@ -2,12 +2,16 @@
 *.o
 *.a
 *.so
+*.zip
 
 # Folders
 _obj
 _test
 .vendor
 data
+static/chromosomes
+static/all.png
+static/hu34D5B9.png
 
 # Architecture specific extensions/prefixes
 *.[568vq]

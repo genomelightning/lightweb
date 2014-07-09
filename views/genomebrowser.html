@@ -1,0 +1,39 @@
+{{template "base/base.html" .}}
+{{define "head"}} <title>Genome Visualizer - Lightning: human genome data query</title>{{end}}
+{{define "body"}}
+
+<style>
+	.slippymap {
+		border: 3px solid black;
+	}
+    .navigator .highlight{
+		opacity:    0.4;
+		filter:     alpha(opacity=40);
+		border:     1px solid #900;
+		outline:    none;
+		background-color: #900;
+	}
+	.highlight{
+		opacity:    0.4;
+        filter:     alpha(opacity=40);
+        border:     1px solid #0A7EbE;
+        outline:    10px auto #0A7EbE;
+        background-color: white;
+	}
+	.highlight:hover, .highlight:focus{
+		filter:     alpha(opacity=70);
+		opacity:    0.7;
+		background-color: transparent;
+	}
+</style>
+
+<div id="toolbarDiv" class="toolbar"></div>
+<div id="contentDiv" class="slippymap"></div>
+<div id="overlaytexts"></div>
+
+<script src="/static/js/openseadragon.min.js"></script>
+<script src="/static/js/openseadragon-viewerinputhook.js"></script>
+<script src="/static/js/jquery-1.10.1.min.js"></script>
+<script src="/static/js/chromosome-dragon.js"></script> 
+
+{{end}}
