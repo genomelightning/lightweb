@@ -97,7 +97,7 @@ jQuery(document).ready(function() {
 	tools.css("width", w);
 	tools.css("height", 35);
 	content.css("width", w);
-	content.css("height", h-120); //hardcode 120px to accomidate toolbar and navbar
+	content.css("height", h-110); //hardcode 120px to accomidate toolbar and navbar
 	beginDragon("/static/chromosomes/TileNumSupertiles.csv");
 	
 });

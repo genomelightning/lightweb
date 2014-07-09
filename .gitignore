@@ -10,6 +10,7 @@ _test
 .vendor
 data
 static/chromosomes
+static/slippy
 static/all.png
 static/hu34D5B9.png
 
