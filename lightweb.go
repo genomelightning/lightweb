@@ -5,10 +5,11 @@ import (
 
 	// "github.com/genomelightning/lightweb/models"
 	"github.com/genomelightning/lightweb/routers"
+	"github.com/genomelightning/lightweb/routers/api"
 )
 
 const (
-	APP_VER = "0.0.1.0618"
+	APP_VER = "0.0.2.0708"
 )
 
 func main() {
@@ -19,6 +20,10 @@ func main() {
 	beego.Router("/query", &routers.QueryRouter{})
 	beego.Router("/tools/genomebrowser", &routers.GenomeBrowserRouter{})
 
-	beego.Router("/api/v1/pngs", &routers.HomeRouter{}, "get:Pngs")
+	beego.AddNamespace(beego.NewNamespace("/api/v1",
+		beego.NSNamespace("/gms",
+			beego.NSRouter("/tiles", &api.ApiV1Router{}, "get:FetchGMSTiles"),
+		),
+	))
 	beego.Run()
 }
