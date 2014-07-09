@@ -66,7 +66,7 @@ function beginDragon(datafile1) {
         });
         console.log(yposition);
         //var chr = $("#chrPicker").val();
-        var srcString = "/static/slippy/entire.dzi";
+        var srcString = "/static/slippy/entire.xml";
         viewer = OpenSeadragon({
             id: "contentDiv",
             prefixUrl: "/static/js/openseadragon-images/",
